@@ -15,4 +15,3 @@ def generate_round():
     progression = ' '.join(progression)
     correct_answer = str(correct_answer)
     return progression, correct_answer
-

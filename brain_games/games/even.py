@@ -10,4 +10,3 @@ def generate_round():
     else:
         correct_answer = 'no'
     return random_number, correct_answer
-
