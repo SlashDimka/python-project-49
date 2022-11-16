@@ -8,7 +8,7 @@
 
 # Requirements
 ## Python 3.10 or above
-
+## Poetry 1.2.0 or above
 # Installation
 ## Use following commands for installing:
 

@@ -4,11 +4,11 @@ from random import randint
 GUIDE = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
-def is_prime(n):
-    if n <= 1:
+def is_prime(number):
+    if number <= 1:
         return False
-    for d in range(2, int(n ** 0.5) + 1):
-        if n % d == 0:
+    for d in range(2, int(number ** 0.5) + 1):
+        if number % d == 0:
             return False
     return True
 
