@@ -1,20 +1,15 @@
-from random import randint
-from random import choice
-
-
+import operator
+import random
 GUIDE = 'What is the result of the expression?'
-
-
+operators = {
+        '+': operator.add,
+        '-': operator.sub,
+        '*': operator.mul
+    }
 def generate_round():
-    operators = ['+', '-', '*']
-    first_operand = randint(1, 100)
-    second_operand = randint(1, 100)
-    random_operator = choice(operators)
-    if random_operator == '+':
-        correct_answer = first_operand + second_operand
-    elif random_operator == '-':
-        correct_answer = first_operand - second_operand
-    elif random_operator == '*':
-        correct_answer = first_operand * second_operand
-    question = f'{first_operand} {random_operator} {second_operand}'
-    return question, str(correct_answer)
+    number1 = random.randint(1, 100)
+    number2 = random.randint(1, 100)
+    operator_symb = random.choice(list(operators))
+    question = f"{number1} {operator_symb} {number2}"
+    correct_answer = str(operators.get(operator_symb)(number1, number2))
+    return question, correct_answer
