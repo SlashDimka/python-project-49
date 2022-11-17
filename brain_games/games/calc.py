@@ -1,11 +1,13 @@
 import operator
 import random
+
+
 GUIDE = 'What is the result of the expression?'
-operators = {
-        '+': operator.add,
-        '-': operator.sub,
-        '*': operator.mul
-    }
+operators = {'+': operator.add,
+             '-': operator.sub,
+             '*': operator.mul}
+
+
 def generate_round():
     number1 = random.randint(1, 100)
     number2 = random.randint(1, 100)
