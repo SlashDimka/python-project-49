@@ -1,13 +1,17 @@
-from random import randint
+import random
 
 
 GUIDE = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
-def generate_round():
-    random_number = randint(1, 100)
-    if random_number % 2 == 0:
-        correct_answer = 'yes'
+def is_even(question):
+    if question % 2 == 0:
+        return 'yes'
     else:
-        correct_answer = 'no'
-    return random_number, correct_answer
+        return 'no'
+
+
+def generate_round():
+    question = random.randint(1, 99)
+    correct_answer = str(is_even(question))
+    return question, correct_answer

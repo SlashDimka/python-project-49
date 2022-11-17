@@ -4,14 +4,35 @@ from random import randint
 GUIDE = 'What number is missing in the progression?'
 
 
+TASK_DESCRIPTION = "What number is missing in the progression?"
+MIN_NUMBER = 1
+MAX_NUMBER = 100
+MIN_DIFF_PROGRESSION = 1
+MAX_DIFF_PROGRESSION = 10
+MIN_HIDDEN_NUMBER = 1
+MAX_HIDDEN_NUMBER = 9
+
+
+def build_progression(first_element, step):
+    member, progression = first_element, [first_element]
+    for i in range(10):
+        member += step
+        progression.append(member)
+    return progression
+
+
+def get_string_from_progression(progression, hidden_number):
+    progression_string = []
+    for index in range(0, 10):
+        progression_string.append(str(progression[index]))
+    progression_string[hidden_number] = '..'
+    return " ".join(progression_string)
+
+
 def generate_round():
-    progression = list(range(randint(1, 10),
-                             randint(35, 50), randint(2, 5)))
-    progression = progression[:10]
-    random_index = randint(0, len(progression) - 1)
-    correct_answer = progression[random_index]
-    progression[random_index] = '..'
-    progression = list(map(str, progression))
-    progression = ' '.join(progression)
-    correct_answer = str(correct_answer)
-    return progression, correct_answer
+    first_element = randint(MIN_NUMBER, MAX_NUMBER)
+    step = randint(MIN_DIFF_PROGRESSION, MAX_DIFF_PROGRESSION)
+    hidden_number = randint(MIN_HIDDEN_NUMBER, MAX_HIDDEN_NUMBER)
+    progression = build_progression(first_element, step)
+    return (get_string_from_progression(progression, hidden_number),
+            str(progression[hidden_number]))
