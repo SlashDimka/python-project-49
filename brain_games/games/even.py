@@ -1,17 +1,21 @@
-import random
+from random import randint
 
 
+LOWER_LIMIT = 1
+UPPER_LIMIT = 200
 GUIDE = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
-def is_even(question):
-    if question % 2 == 0:
-        return 'yes'
-    else:
-        return 'no'
-
-
 def generate_round():
-    question = random.randint(1, 99)
-    correct_answer = str(is_even(question))
+    random_number = randint(LOWER_LIMIT, UPPER_LIMIT)
+
+    if is_even(random_number):
+        correct_answer = 'yes'
+    else:
+        correct_answer = 'no'
+    question = random_number
     return question, correct_answer
+
+
+def is_even(random_number):
+    return random_number % 2 == 0
